@@ -76,6 +76,11 @@ jobs:
         with:
           credentials_json: ${{ secrets.GOOGLE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
 
+      - name: print output file
+        run: | 
+          ls -l output
+          cat output/*.json
+
       - id: 'upload-file'
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
