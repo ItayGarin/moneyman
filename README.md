@@ -181,3 +181,5 @@ Use the following env vars to setup:
 | `GOOGLE_SERVICE_ACCOUNT_EMAIL`       | The service account's email address                           |
 | `GOOGLE_SHEET_ID`                    | The id of the spreadsheet you shared with the service account |
 | `WORKSHEET_NAME`                     | The name of the sheet you want to add the transactions to     |
+
+:)
