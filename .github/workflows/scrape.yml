@@ -72,17 +72,18 @@ jobs:
           AZURE_APP_KEY: ${{ secrets.AZURE_APP_KEY }}
           LOCAL_JSON_STORAGE: "true"
 
-      # - id: 'auth'
-      #   uses: 'google-github-actions/auth@v1'
-      #   with:
-      #     credentials_json: ${{ secrets.GOOGLE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
-
-      - name: print output file
+      - name: List directory
         run: | 
-          ls -l ${{ github.workspace }}/output
+          ls -la .
 
-      # - id: 'upload-file'
-      #   uses: 'google-github-actions/upload-cloud-storage@v1'
-      #   with:
-      #     path: 'output'
-      #     destination: 'itayg-expense-scrapes'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: ${{ secrets.GOOGLE_GCS_SERVICE_ACCOUNT_CREDENTIALS }}
+
+      - id: 'upload-file'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+          path: ${{ github.workspace }}
+          destination: 'itayg-expense-scrapes'
+          glob: '**/*.json'
