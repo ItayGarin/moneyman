@@ -86,4 +86,4 @@ jobs:
         with:
           path: ${{ github.workspace }}
           destination: 'itayg-expense-scrapes'
-          glob: '**/*.json'
+          glob: '**/scrape-*.json'
